@@ -46,7 +46,7 @@ h1 {
   background-color: #3338;
 }
 
-div#drop-zone {
+#drop-zone {
   background: black;
   position: fixed;
   inset: 0;
@@ -60,17 +60,21 @@ div#drop-zone {
   transition: visibility 0s .3s, opacity .3s 0s;
 }
 
-div#drop-zone.shown {
+#drop-zone.shown {
   visibility: visible;
   opacity: 0.6;
   transition: opacity .3s 0s;
 }
+
 
 #stage {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
 }
+#start-msg {
+  color: black;
+ }
 
 #outer-img {
   display: block;

@@ -9,6 +9,7 @@ setUpDropZone(getEl("drop-zone"), e => {
   getEl("inner-img").src = URL.createObjectURL(file);
   getEl("inner2-img").src = URL.createObjectURL(file);
 
+  getEl("start-msg").innerText = "";
 
 })
 
