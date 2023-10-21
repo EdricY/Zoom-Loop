@@ -28,6 +28,8 @@ getEl("start-btn").addEventListener("click", () => {
   const iScale = 1 / transform.scale;
   getEl("outer-img").style.scale = iScale;
   getEl("outer-img").style.rotate = -transform.rotate + "deg";
+  getEl("outer-img").style.opacity = `0`;
+
 
   getEl("inner-img").style.transition = `all linear 1s`;
   // getEl("inner-img").style.translate = `0px 0px`;
@@ -42,9 +44,6 @@ getEl("start-btn").addEventListener("click", () => {
   getEl("inner2-img").style.rotate = transform.rotate + "deg";
 
 
-
-
-
   setTimeout(() => {
     getEl("inner-img").style.transition = ""
     getEl("inner-img").style.scale = transform.scale
@@ -57,11 +56,10 @@ getEl("start-btn").addEventListener("click", () => {
     getEl("inner2-img").style.rotate = transform.rotate * 2 + "deg";
 
 
-
-
     getEl("outer-img").style.transition = ""
     getEl("outer-img").style.scale = 1
     getEl("outer-img").style.rotate = `0deg`;
+    getEl("outer-img").style.opacity = `1`;
 
   }, 1000)
 })
@@ -89,7 +87,6 @@ document.addEventListener("mousedown", () => { isMouseDown = true });
 document.addEventListener("mouseup", () => { isMouseDown = false });
 
 const editOrigin = (e) => {
-  console.log(e)
   transform.x = e.offsetX
   transform.y = e.offsetY
   getEl("outer-img").style.transformOrigin = `${transform.x}px ${transform.y}px`;
@@ -122,3 +119,25 @@ function updateRotate(e) {
 getEl("rotate-range").addEventListener("input", updateRotate)
 getEl("rotate-range").addEventListener("change", updateRotate)
 
+getEl("layer-checkbox").addEventListener("change", (e) => {
+  if (e.target.checked) {
+    getEl("outer-img").style.zIndex = 3;
+    getEl("inner-img").style.zIndex = 2;
+    getEl("inner2-img").style.zIndex = 1;
+  } else {
+    getEl("outer-img").style.zIndex = 1;
+    getEl("inner-img").style.zIndex = 2;
+    getEl("inner2-img").style.zIndex = 3;
+  }
+});
+
+
+getEl("hide-btn").addEventListener("click", () => {
+  getEl("controls").classList.toggle("hidden");
+});
+
+window.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    getEl("controls").classList.toggle("hidden");
+  }
+})

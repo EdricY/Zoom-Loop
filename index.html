@@ -14,22 +14,27 @@
 
   <div id="stage">
     <div id="start-msg">Drop an image here to get started</div>
-    
+
     <img src="" id="outer-img">
     <img src="" id="inner-img">
     <img src="" id="inner2-img">
   </div>
 
   <div id="controls">
+    <button id="hide-btn">Hide/Show (Esc)</button>
     <button id="start-btn">Go</button>
     <button id="loop-btn">Loop</button>
     <label>
       Scale
-      <input id="scale-range" min="0.01" max="2" value="0.1" step="0.01" type="range" />
+      <input id="scale-range" min="0.01" max="1" value="0.1" step="0.01" type="range" />
     </label>
     <label>
       Rotate
       <input id="rotate-range" min="0" max="360" value="0" step="0.1" type="range" />
+    </label>
+    <label>
+      Layer behind (image has transparency)
+      <input id="layer-checkbox" type="checkbox" />
     </label>
   </div>
   <div id="drop-zone">
